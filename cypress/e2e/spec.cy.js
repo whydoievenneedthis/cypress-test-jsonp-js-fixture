@@ -1,6 +1,8 @@
-/// <reference types="cypress" />
 describe('page', () => {
-  it('works', () => {
-    cy.visit('https://example.cypress.io')
-  })
-})
+  it('does not work', () => {
+    cy.intercept(
+      { method: 'GET', url: 'https://code.jquery.com/jquery-3.6.1.min.js' },
+      { fixture: 'jquery.js' }
+    );
+  });
+});
